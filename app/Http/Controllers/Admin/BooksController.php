@@ -28,7 +28,7 @@ class BooksController extends Controller
             $filetype = $_FILES["book"]["type"];
             $filesize = $_FILES["book"]["size"];
             $filenameonly = preg_replace('/\\.[^.\\s]{3,4}$/', '', $filename); 
-            $maxsize = 1024 * 1024*2;
+            $maxsize = 1024 * 1024*3;
             $ext = strtolower( pathinfo($filename, PATHINFO_EXTENSION));
             $rename_file=random_int(10000000, 999999999).'.'.$ext;
             $path='../public/uploads/'.$rename_file;
@@ -87,7 +87,7 @@ class BooksController extends Controller
             $filename = $_FILES["book"]["name"];
             $filetype = $_FILES["book"]["type"];
             $filesize = $_FILES["book"]["size"];
-            $maxsize = 1024 * 1024*2;
+            $maxsize = 1024 * 1024*3;
             $ext = strtolower( pathinfo($filename, PATHINFO_EXTENSION));
             $rename_file=random_int(10000000, 999999999).'.'.$ext;
             $path='../public/uploads/'.$rename_file;

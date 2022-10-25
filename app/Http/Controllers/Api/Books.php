@@ -12,7 +12,6 @@ class Books extends Controller
     {
         $getbook = Book::WHERE('likes','>',0)->select('booktitle','likes')
         ->orderBy('likes','DESC')->limit(20)->get();
-       // $getbook=Book::whereRaw('likes = (select max(`likes`) from books)')->get();
         if(count($getbook)>0){
             $output=['massage'=>'books with more likes','books'=>$getbook];
            
@@ -26,7 +25,7 @@ class Books extends Controller
     }
     public function booklist()
     {
-        $getbook = Book::select('booktitle')->get();
+        $getbook = Book::select('booktitle')->paginate(20);
         if(count($getbook)>0){
             $output=['massage'=>'list of books','books'=>$getbook];
         }

@@ -28,8 +28,9 @@ class Authentication extends Controller
             return $response;
         
     }
-    public function logout($id){
-        $delete=DB::table('personal_access_tokens')->WHERE('tokenable_id',$id)->delete();
+    public function logout(Request $request){
+        $request->id;
+        $delete=DB::table('personal_access_tokens')->WHERE('tokenable_id',$request->id)->delete();
         if($delete){
             $response = ['authentication' => true, 'message' => 'successful'];
         }
