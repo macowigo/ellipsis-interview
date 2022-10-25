@@ -11,32 +11,42 @@ use Illuminate\Support\Facades\Hash;
 class Authentication extends Controller
 {
     public function login(Request $request){
-        $user = User::WHERE('email', $request->email)->first();
-        if ($user){
-        if(Hash::check($request->password, $user->password))
-        {
-             $token = $user->createToken("MyToken")->plainTextToken;
-             $response = ['authentication' => true, 'token' => $token, 'user' => $user, 'message' => 'login successful'];
+        if($request->email=='' || $request->password==''){
+            $response = ['authentication' => false, 'message' =>'password and email value are empty'];
         }
         else{
-            $response = ['authentication' => false, 'message' =>'incorrect password'];
-        } 
-    }
-    else{
-        $response = ['authentication' => false, 'message' => 'incorrect email'];
-    }
+            $user = User::WHERE('email', $request->email)->first();
+            if ($user){
+            if(Hash::check($request->password, $user->password))
+            {
+                 $token = $user->createToken("MyToken")->plainTextToken;
+                 $response = ['authentication' => true, 'token' => $token, 'user' => $user, 'message' => 'login successful'];
+            }
+            else{
+                $response = ['authentication' => false, 'message' =>'incorrect password'];
+            } 
+        }
+        else{
+            $response = ['authentication' => false, 'message' => 'incorrect email'];
+        }
+        }
             return $response;
         
     }
     public function logout(Request $request){
-        $request->id;
-        $delete=DB::table('personal_access_tokens')->WHERE('tokenable_id',$request->id)->delete();
-        if($delete){
-            $response = ['authentication' => true, 'message' => 'successful'];
+        if($request->id==''){
+            $response = ['logout' => false, 'message' => 'user id is empty'];
         }
         else{
-            $response = ['authentication' => false, 'message' => 'couldnt reach server'];
+            $delete=DB::table('personal_access_tokens')->WHERE('tokenable_id',$request->id)->delete();
+            if($delete){
+                $response = ['logout' => true, 'message' => 'successful'];
+            }
+            else{
+                $response = ['logout' => false, 'message' => 'couldnt reach server'];
+            }
         }
+      
  return $response;
     }
 }

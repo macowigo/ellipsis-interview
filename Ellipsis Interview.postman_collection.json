@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "1749b605-e0cc-4e13-82df-b0c926f7b720",
+		"name": "Ellipsis Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22908342"
+	},
+	"item": [
+		{
+			"name": "https://ellipsisinterview.macowigotech.com/api/login?email=jakowigo1@gmail.com&password=Ellipsis1@test",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://ellipsisinterview.macowigotech.com/api/logout?id=95450447",
+					"protocol": "https",
+					"host": [
+						"ellipsisinterview",
+						"macowigotech",
+						"com"
+					],
+					"path": [
+						"api",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "95450447"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ellipsisinterview.macowigotech.com/api/logout?id=95450447",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://ellipsisinterview.macowigotech.com/api/logout?id=95450447",
+					"protocol": "https",
+					"host": [
+						"ellipsisinterview",
+						"macowigotech",
+						"com"
+					],
+					"path": [
+						"api",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "95450447"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ellipsisinterview.macowigotech.com/api/booklikes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ellipsisinterview.macowigotech.com/api/booklikes",
+					"protocol": "https",
+					"host": [
+						"ellipsisinterview",
+						"macowigotech",
+						"com"
+					],
+					"path": [
+						"api",
+						"booklikes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ellipsisinterview.macowigotech.com/api/booklist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ellipsisinterview.macowigotech.com/api/booklist",
+					"protocol": "https",
+					"host": [
+						"ellipsisinterview",
+						"macowigotech",
+						"com"
+					],
+					"path": [
+						"api",
+						"booklist"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

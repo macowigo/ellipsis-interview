@@ -36,7 +36,7 @@ class BooksController extends Controller
                 return redirect()->back()->with('failed','Please select a valid book format(PDF,DOC,DOCX)');
             }
             elseif($filesize > $maxsize){
-                return redirect()->back()->with('failed','File size is larger than the allowed limit(2MB)');
+                return redirect()->back()->with('failed','File size is larger than the allowed limit(3MB)');
             }
             else{
                 $chekbooktitle=Book::WHERE('booktitle',$filenameonly)->first();
@@ -51,7 +51,7 @@ class BooksController extends Controller
                         'path'=>$path,
                     ]);
                     if($addbook){
-                        return redirect()->route('adminbookview')->with('succes','Your book uploaded successfully');
+                        return redirect()->back()->with('succes','Your book uploaded successfully');
                     }
                     else{
                         return redirect()->back()->with('failed','There was a problem uploading book. Please try again');
@@ -95,7 +95,7 @@ class BooksController extends Controller
                 return redirect()->back()->with('failed','Please select a valid book format(PDF,DOC,DOCX)');
             }
             elseif($filesize > $maxsize){
-                return redirect()->back()->with('failed','File size is larger than the allowed limit(2MB)');
+                return redirect()->back()->with('failed','File size is larger than the allowed limit(3MB)');
             }
             else{
                 unlink($getpath->path);
