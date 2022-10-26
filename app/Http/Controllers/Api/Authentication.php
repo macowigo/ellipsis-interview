@@ -12,7 +12,7 @@ class Authentication extends Controller
 {
     public function login(Request $request){
         if($request->email=='' || $request->password==''){
-            $response = ['authentication' => false, 'message' =>'password and email value are empty'];
+            $response = ['authentication' => false, 'message' =>'password or email value is empty'];
         }
         else{
             $user = User::WHERE('email', $request->email)->first();
